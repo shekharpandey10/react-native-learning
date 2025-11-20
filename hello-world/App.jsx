@@ -8,12 +8,21 @@ import {
   ActivityIndicator,
   Alert,
   StatusBar,
+  RefreshControl
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function App() {
-  const [loading, setLoading] = useState(false)
-
+  const [loading, setLoading] = useState(true)
+const [refreshing,setRefreshing]=useState(false)
+const onRefresh=()=>{
+  setRefreshing(true)
+  setTimeout(() => {
+    console.log('refreshed')
+    setRefreshing(false)
+    setLoading(false)
+  }, 3000);
+}
   useEffect(() => {
     setTimeout(() => {
       setLoading(true)
@@ -31,10 +40,12 @@ export default function App() {
     ]);
   }
   return (
-    <View style={styles.container}>
-      {/* <StatusBar backgroundColor={'#000'} /> */}
-      <Text>hello</Text>
-    </View>
+ <ScrollView contentContainerStyle={styles.container} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}
+  tintColor={'green'}// only ios
+  title='pull to refresh'
+ />}>
+  <Text>this is shekhar</Text>
+ </ScrollView>
   )
 }
 
