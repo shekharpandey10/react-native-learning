@@ -1,36 +1,31 @@
-import { ScrollView, StyleSheet, Text } from 'react-native'
+import { useEffect, useState } from 'react'
+import { ScrollView, StyleSheet, Text,View ,ActivityIndicator} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+
+
 export default function App() {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true)
+    }, 3000)
+
+  }, [])
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-        <Text>1</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      {loading ? <ActivityIndicator size={'large'} color={'red'} /> : <Text>hello</Text>}
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor: '#fff'
   },
   box: {
     height: 10,
