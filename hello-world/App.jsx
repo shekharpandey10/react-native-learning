@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
-import { ScrollView, StyleSheet, Text,View ,ActivityIndicator} from 'react-native'
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ActivityIndicator,
+  Alert,
+} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-
-
 
 export default function App() {
   const [loading, setLoading] = useState(false)
@@ -11,11 +17,21 @@ export default function App() {
     setTimeout(() => {
       setLoading(true)
     }, 3000)
-
   }, [])
+  const handlePress = () => {
+    console.log('hello')
+     Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+  }
   return (
     <View style={styles.container}>
-      {loading ? <ActivityIndicator size={'large'} color={'red'} /> : <Text>hello</Text>}
+      <Button title='delete item' onPress={handlePress} />
     </View>
   )
 }
@@ -23,9 +39,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: '#fff'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
   box: {
     height: 10,
