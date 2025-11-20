@@ -40,20 +40,17 @@ const onRefresh=()=>{
     ]);
   }
   return (
- <ScrollView contentContainerStyle={styles.container} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}
-  tintColor={'green'}// only ios
-  title='pull to refresh'
- />}>
-  <Text>this is shekhar</Text>
- </ScrollView>
+<View style={[styles.container,{borderTopWidth:5,borderTopColor:'blue'}]}>
+  <Text>this is shekhar pandey</Text>
+</View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#fff',
   },
   box: {
