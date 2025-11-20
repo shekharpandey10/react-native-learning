@@ -7,6 +7,7 @@ import {
   Button,
   ActivityIndicator,
   Alert,
+  StatusBar,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -31,7 +32,8 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Button title='delete item' onPress={handlePress} />
+      {/* <StatusBar backgroundColor={'#000'} /> */}
+      <Text>hello</Text>
     </View>
   )
 }
