@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, View } from 'react-native'
+import Button from './Button'
+
+
 
 export default function Card(props: any) {
   const { title, description } = props
@@ -13,6 +16,9 @@ export default function Card(props: any) {
        {props.imageSource && <Image source={{ uri: props.imageSource }}
         style={{ width: 50, height: 50 }} />}
      </View>
+     {/* <Button buttonLabel="click me" onClick={()=>{
+      Alert.alert("button clicked")
+     }}/> */}
     </View>
   )
 }
